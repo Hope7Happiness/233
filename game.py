@@ -3,7 +3,7 @@ import pygame
 import sys
 import math
 import argparse
-import time
+import time, os
 import copy
 from enum import Enum
 from typing import Tuple, Optional, Dict, Any, Callable
@@ -693,6 +693,7 @@ def rollout(policy_fn: Callable[[Dict[str, Any]], Action],
         action = policy_fn(state)
         
         _, reward, done = game.step(action)
+        print('reward:', reward, 'done:', done)
         step_count += 1
         
         if render:
